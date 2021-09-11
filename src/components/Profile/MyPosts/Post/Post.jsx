@@ -10,7 +10,7 @@ const Post = (props) => {
       />
       {props.message}
       <div>
-        <span>like: {props.likeCounts}</span>
+        <span>like: {props.likesCount}</span>
       </div>
     </div>
   );
