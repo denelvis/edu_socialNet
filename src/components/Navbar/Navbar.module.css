@@ -6,3 +6,7 @@
 .item {
   color: ghostwhite;
 }
+
+.active {
+  color: gold;
+}
