@@ -3,6 +3,6 @@
   background-color: darkorchid;
 }
 
-.content img {
-  width: 60%;
+.img {
+  max-width: 60%;
 }
