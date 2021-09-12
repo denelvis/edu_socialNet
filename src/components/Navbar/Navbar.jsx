@@ -10,7 +10,7 @@ const Navbar = () => {
           Profile
         </NavLink>
       </div>
-      <div className={`${classes.item} ${classes.active}`}>
+      <div className={classes.item}>
         <NavLink to="/dialogs" activeClassName={classes.activeLink}>
           Messages
         </NavLink>
