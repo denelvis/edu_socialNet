@@ -8,12 +8,42 @@ let state = {
 
   messagesPage: {
     dialogs: [
-      { id: 1, name: "Dimych" },
-      { id: 2, name: "Andrey" },
-      { id: 3, name: "Sveta" },
-      { id: 4, name: "Sasha" },
-      { id: 5, name: "Victor" },
-      { id: 6, name: "Valera" },
+      {
+        id: 1,
+        name: "Dimych",
+        avatar:
+          "https://media.istockphoto.com/vectors/cute-smiling-bear-muzzle16x16-pixel-art-icon-isolated-on-white-chat-vector-id1147096624",
+      },
+      {
+        id: 2,
+        name: "Andrey",
+        avatar:
+          "https://cdn.dribbble.com/users/1061842/screenshots/2942741/ironman.png",
+      },
+      {
+        id: 3,
+        name: "Sveta",
+        avatar:
+          "https://cdn.dribbble.com/users/1061842/screenshots/2942741/ironman.png",
+      },
+      {
+        id: 4,
+        name: "Sasha",
+        avatar:
+          "https://cdn.dribbble.com/users/1061842/screenshots/2942741/ironman.png",
+      },
+      {
+        id: 5,
+        name: "Victor",
+        avatar:
+          "https://cdn.dribbble.com/users/1061842/screenshots/2942741/ironman.png",
+      },
+      {
+        id: 6,
+        name: "Valera",
+        avatar:
+          "https://cdn.dribbble.com/users/1061842/screenshots/2942741/ironman.png",
+      },
     ],
     messages: [
       { id: 1, message: "Hi" },
