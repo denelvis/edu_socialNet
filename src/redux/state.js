@@ -6,6 +6,7 @@ let state = {
       { id: 1, message: "Hi, how're you?", likesCount: 15 },
       { id: 2, message: "It's my first post!", likesCount: 20 },
     ],
+    newPostText: "",
   },
 
   messagesPage: {
@@ -52,12 +53,38 @@ let state = {
       { id: 2, message: "How does the training go?" },
       { id: 3, message: "What's news?" },
     ],
+    newMessageText: "",
   },
 };
 
-export let addPost = (postMessage) => {
-  let newPost = { id: 3, message: postMessage, likesCount: 0 };
+export let addPost = () => {
+  let newPost = {
+    id: 3,
+    message: state.profilePage.newPostText,
+    likesCount: 0,
+  };
   state.profilePage.posts.push(newPost);
+  state.profilePage.newPostText = "";
+  rerenderEntireTree(state);
+};
+
+export let updateNewPostText = (newPost) => {
+  state.profilePage.newPostText = newPost;
+  rerenderEntireTree(state);
+};
+
+export let addMessage = () => {
+  let newMessage = {
+    id: 4,
+    message: state.messagesPage.newMessageText,
+  };
+  state.messagesPage.messages.push(newMessage);
+  state.messagesPage.newMessageText = "";
+  rerenderEntireTree(state);
+};
+
+export let updateNewMessageText = (newMessage) => {
+  state.messagesPage.newMessageText = newMessage;
   rerenderEntireTree(state);
 };
 
