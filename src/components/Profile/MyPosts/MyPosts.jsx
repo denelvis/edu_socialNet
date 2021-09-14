@@ -11,7 +11,8 @@ const MyPosts = (props) => {
 
   let addPost = () => {
     let text = newPostElement.current.value;
-    alert(text);
+    if (text.trim()) props.addPost(text);
+    newPostElement.current.value = null;
   };
 
   return (
