@@ -6,7 +6,7 @@ import store from "./redux/reduxStore";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "./StoreContext";
 
-export let rerenderEntireTree = (state) => {
+export let rerenderEntireTree = () => {
   ReactDOM.render(
     <BrowserRouter>
       <Provider store={store}>
@@ -17,9 +17,8 @@ export let rerenderEntireTree = (state) => {
   );
 };
 
-rerenderEntireTree(store.getState());
+rerenderEntireTree();
 
 store.subscribe(() => {
-  let state = store.getState();
-  rerenderEntireTree(state);
+  rerenderEntireTree();
 });
