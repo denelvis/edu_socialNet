@@ -2,3 +2,21 @@
   width: 100px;
   height: 100px;
 }
+
+.selectedPage {
+  font-weight: 700;
+}
+
+.paginator {
+  width: 745px;
+  overflow: auto;
+}
+
+.span {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.span:hover {
+  cursor: pointer;
+}
