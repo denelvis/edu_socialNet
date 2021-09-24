@@ -1,7 +1,11 @@
 import React from "react";
+import Preloader from "../../common/Preloader/Preloader";
 import classes from "./ProfileInfo.module.css";
 
-const ProfileInfo = () => {
+const ProfileInfo = (props) => {
+  if (!props.profile) {
+    return <Preloader />;
+  }
   return (
     <div>
       <div>
@@ -10,7 +14,11 @@ const ProfileInfo = () => {
           alt="pic"
         />
       </div>
-      <div className={classes.descriptionBlock}>avatar + description</div>
+      <div className={classes.descriptionBlock}>
+        <img src={props.profile.photos.small} />
+        <span>{props.profile.lookingForAJobDescription}</span>
+        <div>avatar + description</div>
+      </div>
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import classes from "./Users.module.css";
 import userPhoto from "../../assets/img/default.webp";
 
@@ -30,11 +31,15 @@ const Users = (props) => {
         <div key={user.id}>
           <span>
             <div>
-              <img
-                src={user.photos.small != null ? user.photos.small : userPhoto}
-                alt="avatar"
-                className={classes.photo}
-              />
+              <NavLink to={`/profile/${user.id}`}>
+                <img
+                  src={
+                    user.photos.small != null ? user.photos.small : userPhoto
+                  }
+                  alt="avatar"
+                  className={classes.photo}
+                />
+              </NavLink>
             </div>
             <div>
               {user.followed ? (
@@ -42,9 +47,7 @@ const Users = (props) => {
                   Unfollow
                 </button>
               ) : (
-                <button onClick={() => props.follow(user.id)}>
-                  Follow
-                </button>
+                <button onClick={() => props.follow(user.id)}>Follow</button>
               )}
             </div>
           </span>
