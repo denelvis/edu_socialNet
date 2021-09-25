@@ -7,3 +7,15 @@
   height: 80%;
   margin: 6px 0px 6px 6px;
 }
+
+.loginBlock {
+  float: right;
+  display: flex;
+  width: 60px;
+  height: 60px;
+  align-items: center;
+}
+
+.loginBlock a {
+  color: white;
+}
