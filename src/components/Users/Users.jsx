@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import classes from "./Users.module.css";
 import userPhoto from "../../assets/img/default.webp";
+import axios from "axios";
 
 const Users = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -21,6 +22,7 @@ const Users = (props) => {
                 props.currentPage === page && classes.selectedPage
               } ${classes.span}`}
               onClick={() => props.onPageChanged(page)}
+              key={page}
             >
               {page}
             </span>
@@ -43,11 +45,48 @@ const Users = (props) => {
             </div>
             <div>
               {user.followed ? (
-                <button onClick={() => props.unfollow(user.id)}>
+                <button
+                  onClick={() => {
+                    axios
+                      .delete(
+                        `https://social-network.samuraijs.com/api/1.0/follow/${user.id}`,
+                        {
+                          withCredentials: true,
+                          headers: {
+                            "API-KEY": "7f3ec109-daae-4b5a-8c19-59f1d972056d",
+                          },
+                        }
+                      )
+                      .then((response) => {
+                        if (response.data.resultCode === 0)
+                          props.unfollow(user.id);
+                      });
+                  }}
+                >
                   Unfollow
                 </button>
               ) : (
-                <button onClick={() => props.follow(user.id)}>Follow</button>
+                <button
+                  onClick={() => {
+                    axios
+                      .post(
+                        `https://social-network.samuraijs.com/api/1.0/follow/${user.id}`,
+                        {},
+                        {
+                          withCredentials: true,
+                          headers: {
+                            "API-KEY": "7f3ec109-daae-4b5a-8c19-59f1d972056d",
+                          },
+                        }
+                      )
+                      .then((response) => {
+                        if (response.data.resultCode === 0)
+                          props.follow(user.id);
+                      });
+                  }}
+                >
+                  Follow
+                </button>
               )}
             </div>
           </span>
