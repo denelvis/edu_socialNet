@@ -10,6 +10,7 @@ import {
 import Users from "./Users";
 import Preloader from "../common/Preloader/Preloader";
 import { toggleFollowingProgress } from "./../../redux/usersReducer";
+import withAuthRedirect from './../../hoc/withAuthRedirect';
 
 class UsersContainer extends React.Component {
   componentDidMount() {
@@ -62,6 +63,8 @@ let mapStateToProps = (state) => {
 //   };
 // };
 
+let wihtRedirect = withAuthRedirect(UsersContainer)
+
 export default connect(mapStateToProps, {
   follow,
   unfollow,
@@ -69,4 +72,4 @@ export default connect(mapStateToProps, {
   toggleIsFetching,
   toggleFollowingProgress,
   getUsers,
-})(UsersContainer);
+})(wihtRedirect);
