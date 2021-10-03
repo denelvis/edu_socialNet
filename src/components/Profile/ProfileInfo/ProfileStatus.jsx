@@ -11,12 +11,18 @@ class ProfileStatus extends React.Component {
   deactivateEditMode() {
     this.setState({ editMode: false });
   }
+  mouseDown(e) {
+    e.preventDefault();
+  }
   render() {
     return (
       <div>
         {!this.state.editMode ? (
           <div>
-            <span onDoubleClick={this.activateEditMode.bind(this)}>
+            <span
+              onDoubleClick={this.activateEditMode.bind(this)}
+              onMouseDown={this.mouseDown.bind(this)}
+            >
               {this.props.status}
             </span>
           </div>
