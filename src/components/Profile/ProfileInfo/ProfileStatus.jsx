@@ -1,17 +1,16 @@
 import React from "react";
-import classes from "./ProfileInfo.module.css";
 
 class ProfileStatus extends React.Component {
   state = {
     editMode: false,
   };
-  activateEditMode() {
+  activateEditMode = () => {
     this.setState({ editMode: true });
   }
-  deactivateEditMode() {
+  deactivateEditMode = () => {
     this.setState({ editMode: false });
   }
-  mouseDown(e) {
+  mouseDown = (e) => {
     e.preventDefault();
   }
   render() {
@@ -20,8 +19,8 @@ class ProfileStatus extends React.Component {
         {!this.state.editMode ? (
           <div>
             <span
-              onDoubleClick={this.activateEditMode.bind(this)}
-              onMouseDown={this.mouseDown.bind(this)}
+              onDoubleClick={this.activateEditMode}
+              onMouseDown={this.mouseDown}
             >
               {this.props.status}
             </span>
@@ -30,7 +29,7 @@ class ProfileStatus extends React.Component {
           <div>
             <input
               autoFocus={true}
-              onBlur={this.deactivateEditMode.bind(this)}
+              onBlur={this.deactivateEditMode}
               defaultValue={this.props.status}
             />
           </div>
