@@ -21,8 +21,6 @@ const Dialogs = (props) => {
     <Message message={message.message} key={message.id} />
   ));
 
-  let newMessageElement = React.createRef();
-
   let AddNewMessage = (values) => {
     props.addMessage(values.newMessageText);
   };
